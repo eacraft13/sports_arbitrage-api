@@ -17,10 +17,12 @@
   },
   "homepage": "https://github.com/eacraft13/sports_arbitrage-api#readme",
   "devDependencies": {
+    "chai": "^3.4.1",
     "mocha": "^2.3.4",
     "supertest": "^1.1.0"
   },
   "dependencies": {
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "rethinkdb": "^2.2.0"
   }
 }
