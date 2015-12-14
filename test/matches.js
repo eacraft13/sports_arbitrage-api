@@ -27,7 +27,27 @@ describe('matches', function() {
 
 
     describe('@create', function() {
-        it('should return 201');
+        it('should return 400 without data', function(done) {
+            request(app)
+            .post('/matches')
+            .expect('Content-Type', /json/)
+            .expect(400, done);
+        });
+
+        it('should return 201', function(done) {
+            request(app)
+            .post('/matches')
+            .send({
+                sport: 'NFL',
+                teams: {
+                    away: 'Oakland Raiders',
+                    home: 'Denver Broncos'
+                },
+                time: 1450002600
+            })
+            .expect('Content-Type', /json/)
+            .expect(201, done);
+        });
     });
 
 });

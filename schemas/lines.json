@@ -1,0 +1,39 @@
+{
+    "title": "Lines",
+    "description": "Odds from a particular source.",
+    "type": "object",
+    "properties": {
+        "source": {
+            "description": "Name of the source odds were taken from.",
+            "type": "string"
+        },
+        "odds": {
+            "description": "The given odds for a particular match.",
+            "type": "object",
+            "properties": {
+                "away": {
+                    "type": "object",
+                    "properties": {
+                        "american": { "type": "integer" },
+                        "decimal": { "type": "number" }
+                    },
+                    "required": ["american", "decimal"]
+                },
+                "home": {
+                    "type": "object",
+                    "properties": {
+                        "american": { "type": "integer" },
+                        "decimal": { "type": "number" }
+                    },
+                    "required": ["american", "decimal"]
+                }
+            },
+            "required": ["away", "home"]
+        },
+        "created": {
+            "description": "Timestamp (in seconds) when odds were created in the database.",
+            "type": "number"
+        }
+    },
+    "required": ["source", "created"]
+}

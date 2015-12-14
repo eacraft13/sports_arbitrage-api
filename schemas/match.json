@@ -1,0 +1,45 @@
+{
+	"title": "Match",
+    "description": "A sport's match between two opponents.",
+	"type": "object",
+	"properties": {
+		"id": {
+			"description": "A compound id consisting of team names and match time (e.g., ['san_francisco', 'cleveland', 1449980426]).",
+			"type": "array",
+			"items": [
+				{
+					"description": "Sport of the match.",
+					"type": "string",
+					"pattern": "[a-z]+"
+				},
+				{
+					"description": "Away team's name/city/state (not nickname) in lower case and trimmed.",
+					"type": "string",
+					"pattern": "[a-z-]+"
+				},
+				{
+					"description": "Home team's name/city/state (not nickname) in lower case and trimmed.",
+					"type": "string",
+					"pattern": "[a-z-]+"
+				},
+				{
+					"description": "Match's epoch timestamp (in seconds).",
+					"type": "integer"
+				}
+			]
+		},
+		"lines_id": { "type": "string" },
+		"sport": { "type": "string" },
+		"teams": {
+			"type": "object",
+			"properties": {
+				"away": { "type": "string" },
+				"home": { "type": "string" }
+			}
+		},
+		"time": { "type": "integer" },
+        "created": { "type": "integer" },
+        "updated": { "type": "integer" }
+	},
+	"required": [ "sport", "teams", "time" ]
+}

@@ -22,7 +22,10 @@
     "supertest": "^1.1.0"
   },
   "dependencies": {
+    "ajv": "^2.4.0",
+    "body-parser": "^1.14.1",
     "express": "^4.13.3",
-    "rethinkdb": "^2.2.0"
+    "rethinkdb": "^2.2.0",
+    "slug": "^0.9.1"
   }
 }
