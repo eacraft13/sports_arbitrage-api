@@ -1,1 +1,5 @@
-module.export = {};
+module.exports = {
+    rethinkdb: {
+        db: 'test'
+    }
+};

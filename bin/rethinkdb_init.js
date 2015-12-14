@@ -1,4 +1,4 @@
-var config = require('../config');
+var config = process.env.NODE_ENV === 'test' ? require('../test/config') : require('../config');
 var r      = require('rethinkdb');
 
 
@@ -7,11 +7,11 @@ r.connect()
 .then(function(conn) {
 
     // Make sure db board exists
-    r.dbCreate(config.rethinkdb.db || 'test').run(conn)
+    r.dbCreate(config.rethinkdb.db).run(conn)
 
     // Use db board
     .finally(function() {
-        return conn.use(config.rethinkdb.db || 'test');
+        return conn.use(config.rethinkdb.db);
     })
 
     // Make sure table matches exists

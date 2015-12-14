@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "pretest": "NODE_ENV=test node ./bin/rethinkdb_init.js",
     "test": "./node_modules/mocha/bin/mocha",
+    "posttest": "NODE_ENV=test node ./bin/rethinkdb_deinit.js",
     "prestart": "node ./bin/rethinkdb_init.js",
     "start": "node server.js"
   },
