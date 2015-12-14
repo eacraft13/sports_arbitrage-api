@@ -3,6 +3,31 @@
     "description": "Odds from a particular source.",
     "type": "object",
     "properties": {
+        "match_id": {
+			"description": "A compound foreign_key consisting of team names and match time (e.g., ['nfl', 'san_francisco', 'cleveland', 1449980426]).",
+			"type": "array",
+			"items": [
+				{
+					"description": "Sport of the match.",
+					"type": "string",
+					"pattern": "[a-z]+"
+				},
+				{
+					"description": "Away team's name/city/state (not nickname) in lower case and trimmed.",
+					"type": "string",
+					"pattern": "[a-z-]+"
+				},
+				{
+					"description": "Home team's name/city/state (not nickname) in lower case and trimmed.",
+					"type": "string",
+					"pattern": "[a-z-]+"
+				},
+				{
+					"description": "Match's epoch timestamp (in seconds).",
+					"type": "integer"
+				}
+			]
+		},
         "source": {
             "description": "Name of the source odds were taken from.",
             "type": "string"
@@ -17,7 +42,7 @@
                         "american": { "type": "integer" },
                         "decimal": { "type": "number" }
                     },
-                    "required": ["american", "decimal"]
+                    "required": ["american"]
                 },
                 "home": {
                     "type": "object",
@@ -25,7 +50,7 @@
                         "american": { "type": "integer" },
                         "decimal": { "type": "number" }
                     },
-                    "required": ["american", "decimal"]
+                    "required": ["american"]
                 }
             },
             "required": ["away", "home"]
@@ -35,5 +60,5 @@
             "type": "number"
         }
     },
-    "required": ["source", "created"]
+    "required": ["source", "odds"]
 }
