@@ -34,7 +34,7 @@ describe('lines', function() {
             r.connect(config.rethinkdb)
             .then(function(conn) {
                 conn.use(config.rethinkdb.db);
-                r.table('lines').insert({
+                r.table('matches').insert({
                     id: [ 'nfl', 'oakland-raiders', 'denver-broncos', 1450002600 ],
                     sport: 'NFL',
                     teams: {
@@ -43,7 +43,11 @@ describe('lines', function() {
                     },
                     time: 1450002600
                 })
-                .run(conn, done);
+                .run(conn)
+                .then(function(data) {
+                    console.log(data);
+                    done();
+                });
             });
         });
 
