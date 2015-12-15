@@ -1,6 +1,6 @@
 {
     "title": "Lines",
-    "description": "Odds from a particular source.",
+    "description": "Odds for a match from a particular source.",
     "type": "object",
     "properties": {
         "match_id": {
@@ -13,17 +13,17 @@
 					"pattern": "[a-z]+"
 				},
 				{
-					"description": "Away team's name/city/state (not nickname) in lower case and trimmed.",
+					"description": "Away team's full name as a slug.",
 					"type": "string",
 					"pattern": "[a-z-]+"
 				},
 				{
-					"description": "Home team's name/city/state (not nickname) in lower case and trimmed.",
+					"description": "Home team's full name as a slug.",
 					"type": "string",
 					"pattern": "[a-z-]+"
 				},
 				{
-					"description": "Match's epoch timestamp (in seconds).",
+					"description": "Match time as epoch timestamp (in seconds).",
 					"type": "integer"
 				}
 			]
@@ -55,8 +55,8 @@
             },
             "required": ["away", "home"]
         },
-        "created": {
-            "description": "Timestamp (in seconds) when odds were created in the database.",
+        "ttl": {
+            "description": "A future timestamp (in seconds) when these odds should expire.",
             "type": "number"
         }
     },
