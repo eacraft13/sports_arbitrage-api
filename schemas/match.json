@@ -36,7 +36,8 @@
 				"home": { "type": "string" }
 			}
 		},
-		"time": { "type": "integer" }
+		"time": { "type": "integer" },
+		"created": { "type": "string", "format": "date-time" }
 	},
 	"required": [ "sport", "teams", "time" ]
 }

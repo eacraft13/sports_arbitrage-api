@@ -58,6 +58,10 @@
         "ttl": {
             "description": "A future timestamp (in seconds) when these odds should expire.",
             "type": "number"
+        },
+        "created": {
+            "type": "string",
+            "format": "date-time"
         }
     },
     "required": ["source", "odds"]
